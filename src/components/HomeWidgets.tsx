@@ -1,147 +1,158 @@
 
 import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { LineChart, BarChart3, Users, CheckCircle, ArrowUpRight, Lightbulb, TrendingUp, Star, Clock } from "lucide-react";
-import { SparkleButton } from "./SparkleButton";
 import { Link } from "react-router-dom";
+import { 
+  ArrowRight, Lightbulb, BrainCircuit, Layers, Bot, 
+  Briefcase, GraduationCap, Code, LineChart, 
+  FileText, FileSearch, Award, Sparkles
+} from "lucide-react";
+import { 
+  Card, CardContent, CardDescription, 
+  CardFooter, CardHeader, CardTitle 
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
-export const StatsWidget = () => {
-  const stats = [
-    { icon: <Users className="h-8 w-8 text-primary/70" />, value: "94%", label: "Success Rate", change: "+12%" },
-    { icon: <LineChart className="h-8 w-8 text-primary/70" />, value: "3.5x", label: "Interview Rate", change: "+28%" },
-    { icon: <CheckCircle className="h-8 w-8 text-primary/70" />, value: "85%", label: "ATS Pass Rate", change: "+16%" },
-    { icon: <Clock className="h-8 w-8 text-primary/70" />, value: "-68%", label: "Time to Hire", change: "3 weeks faster" },
-  ];
-
+export const TechStatsWidget = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-      {stats.map((stat, index) => (
-        <Card key={index} className="border-none glass-card overflow-hidden group hover:shadow-lg transition-all duration-300">
-          <CardContent className="p-6 flex items-center">
-            <div className="mr-4 p-3 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
-              {stat.icon}
-            </div>
-            <div>
-              <div className="flex items-center">
-                <span className="text-3xl font-bold">{stat.value}</span>
-                <span className="ml-2 text-xs px-1.5 py-0.5 rounded-full bg-green-500/20 text-green-500 flex items-center">
-                  {stat.change} <ArrowUpRight className="ml-0.5 h-3 w-3" />
-                </span>
-              </div>
-              <p className="text-sm text-muted-foreground">{stat.label}</p>
-            </div>
-          </CardContent>
-        </Card>
-      ))}
+    <div className="glass-card p-6 rounded-xl">
+      <h3 className="text-lg font-semibold mb-4 flex items-center">
+        <LineChart className="mr-2 h-5 w-5 text-primary" />
+        AI Resume Statistics
+      </h3>
+      
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div className="p-4 bg-primary/5 rounded-lg">
+          <div className="text-3xl font-bold text-primary">124K+</div>
+          <div className="text-sm text-muted-foreground">Resumes Analyzed</div>
+        </div>
+        <div className="p-4 bg-primary/5 rounded-lg">
+          <div className="text-3xl font-bold text-primary">87%</div>
+          <div className="text-sm text-muted-foreground">Success Rate</div>
+        </div>
+        <div className="p-4 bg-primary/5 rounded-lg">
+          <div className="text-3xl font-bold text-primary">5.2K+</div>
+          <div className="text-sm text-muted-foreground">Jobs Secured</div>
+        </div>
+        <div className="p-4 bg-primary/5 rounded-lg">
+          <div className="text-3xl font-bold text-primary">16.8K+</div>
+          <div className="text-sm text-muted-foreground">Active Users</div>
+        </div>
+      </div>
     </div>
   );
 };
 
-export const TipsWidget = () => {
-  const tips = [
-    { icon: <Lightbulb className="h-5 w-5 text-yellow-500" />, tip: "Use industry-specific keywords to pass ATS systems" },
-    { icon: <CheckCircle className="h-5 w-5 text-green-500" />, tip: "Quantify your achievements with specific metrics" },
-    { icon: <TrendingUp className="h-5 w-5 text-blue-500" />, tip: "Tailor your resume for each job application" },
-    { icon: <Star className="h-5 w-5 text-purple-500" />, tip: "Place most relevant experience at the top of each section" },
+export const CareerPathsWidget = () => {
+  const careerPaths = [
+    { name: "Tech & IT", icon: <Code className="h-5 w-5 text-blue-500" />, path: "/career-path?field=tech" },
+    { name: "Business", icon: <Briefcase className="h-5 w-5 text-green-500" />, path: "/career-path?field=business" },
+    { name: "Education", icon: <GraduationCap className="h-5 w-5 text-yellow-500" />, path: "/career-path?field=education" },
+    { name: "Data Science", icon: <LineChart className="h-5 w-5 text-purple-500" />, path: "/career-path?field=data" }
   ];
 
   return (
-    <Card className="border-none glass-card">
-      <CardHeader>
-        <CardTitle className="text-xl flex items-center">
-          <Lightbulb className="h-5 w-5 mr-2 text-yellow-500" /> Quick Resume Tips
+    <Card className="bg-gradient-to-br from-background/80 to-background/60 border-primary/10 overflow-hidden">
+      <CardHeader className="pb-2">
+        <CardTitle className="text-lg flex items-center">
+          <Layers className="mr-2 h-5 w-5 text-primary" />
+          Career Paths
         </CardTitle>
+        <CardDescription>Explore custom career journeys</CardDescription>
       </CardHeader>
-      <CardContent className="px-6 pb-6">
-        <ul className="space-y-3">
-          {tips.map((tip, index) => (
-            <li key={index} className="flex items-start">
-              <div className="mr-3 mt-0.5">{tip.icon}</div>
-              <span className="text-sm">{tip.tip}</span>
+      <CardContent className="pb-2">
+        <ul className="space-y-2">
+          {careerPaths.map((path, index) => (
+            <li key={index}>
+              <Link to={path.path} className="flex items-center justify-between p-2 rounded-md hover:bg-primary/5 transition-colors">
+                <div className="flex items-center gap-2">
+                  {path.icon}
+                  <span>{path.name}</span>
+                </div>
+                <ArrowRight className="h-4 w-4 text-muted-foreground" />
+              </Link>
             </li>
           ))}
         </ul>
-        <div className="mt-4 text-center">
-          <Link to="/resume-tips">
-            <SparkleButton variant="outline" size="sm">View All Tips</SparkleButton>
-          </Link>
-        </div>
       </CardContent>
+      <CardFooter>
+        <Link to="/career-path" className="text-primary text-sm flex items-center">
+          <span>View all career paths</span>
+          <ArrowRight className="ml-1 h-4 w-4" />
+        </Link>
+      </CardFooter>
     </Card>
   );
 };
 
-export const PopularTemplatesWidget = () => {
-  const templates = [
-    { name: "Modern Professional", imageUrl: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=200&auto=format&fit=crop" },
-    { name: "Creative Designer", imageUrl: "https://images.unsplash.com/photo-1611926653458-09294b3142bf?q=80&w=200&auto=format&fit=crop" },
-    { name: "Tech Innovator", imageUrl: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=200&auto=format&fit=crop" }
+export const AIToolsWidget = () => {
+  const tools = [
+    { name: "Resume Analyzer", icon: <FileSearch className="h-5 w-5 text-primary" />, path: "/resume-analysis" },
+    { name: "Cover Letter Generator", icon: <FileText className="h-5 w-5 text-primary" />, path: "/cover-letters" },
+    { name: "Skills Assessment", icon: <Award className="h-5 w-5 text-primary" />, path: "/skills-assessment" }
   ];
-
+  
   return (
-    <Card className="border-none glass-card">
-      <CardHeader>
-        <CardTitle className="text-xl">Popular Templates</CardTitle>
+    <Card className="bg-gradient-to-br from-background/80 to-background/60 border-primary/10 overflow-hidden">
+      <CardHeader className="pb-2">
+        <CardTitle className="text-lg flex items-center">
+          <BrainCircuit className="mr-2 h-5 w-5 text-primary" />
+          AI Tools
+        </CardTitle>
+        <CardDescription>Boost your career with AI</CardDescription>
       </CardHeader>
-      <CardContent className="px-6 pb-6">
-        <div className="grid grid-cols-3 gap-3">
-          {templates.map((template, index) => (
-            <div 
-              key={index} 
-              className="aspect-[3/4] rounded-md overflow-hidden relative group cursor-pointer"
-            >
-              <img 
-                src={template.imageUrl} 
-                alt={template.name} 
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span className="text-xs text-center text-white px-1">{template.name}</span>
-              </div>
-            </div>
+      <CardContent className="pb-2">
+        <ul className="space-y-2">
+          {tools.map((tool, index) => (
+            <li key={index}>
+              <Link to={tool.path} className="flex items-center justify-between p-2 rounded-md hover:bg-primary/5 transition-colors">
+                <div className="flex items-center gap-2">
+                  {tool.icon}
+                  <span>{tool.name}</span>
+                </div>
+                <ArrowRight className="h-4 w-4 text-muted-foreground" />
+              </Link>
+            </li>
           ))}
-        </div>
-        <div className="mt-4 text-center">
-          <Link to="/resume-templates">
-            <SparkleButton variant="outline" size="sm">View All Templates</SparkleButton>
-          </Link>
-        </div>
+        </ul>
       </CardContent>
+      <CardFooter>
+        <Link to="/resume-templates" className="text-primary text-sm flex items-center">
+          <span>Explore all tools</span>
+          <ArrowRight className="ml-1 h-4 w-4" />
+        </Link>
+      </CardFooter>
     </Card>
   );
 };
 
-export const CtaWidget = () => {
+export const NewsWidget = () => {
   return (
-    <Card className="border-none glass-card bg-gradient-to-br from-primary/20 to-blue-500/5 overflow-hidden relative">
-      <div className="absolute inset-0 opacity-30">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-primary/20"
-            style={{
-              width: `${20 + Math.random() * 20}px`,
-              height: `${20 + Math.random() * 20}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `float ${5 + Math.random() * 5}s linear infinite`,
-              animationDelay: `${Math.random() * 3}s`,
-            }}
-          />
-        ))}
-      </div>
-      
-      <CardContent className="p-6 relative z-10">
-        <h3 className="text-xl font-bold mb-2">Ready to optimize your resume?</h3>
-        <p className="text-sm text-muted-foreground mb-4">
-          Upload your resume now and get instant AI-powered feedback and improvement suggestions
-        </p>
-        <div className="flex justify-center">
-          <Link to="/upload-resume">
-            <SparkleButton>Start Now</SparkleButton>
-          </Link>
+    <Card className="bg-gradient-to-br from-background/80 to-background/60 border-primary/10 overflow-hidden">
+      <CardHeader className="pb-2">
+        <CardTitle className="text-lg flex items-center">
+          <Lightbulb className="mr-2 h-5 w-5 text-primary" />
+          Latest Updates
+        </CardTitle>
+        <CardDescription>Tips and industry news</CardDescription>
+      </CardHeader>
+      <CardContent className="pb-2">
+        <div className="space-y-3">
+          <div className="bg-primary/5 p-3 rounded-md">
+            <div className="text-sm font-medium">Resume Tips 2024</div>
+            <p className="text-xs text-muted-foreground">Top skills employers look for this year</p>
+          </div>
+          <div className="bg-primary/5 p-3 rounded-md">
+            <div className="text-sm font-medium">AI in Recruitment</div>
+            <p className="text-xs text-muted-foreground">How AI is changing hiring processes</p>
+          </div>
         </div>
       </CardContent>
+      <CardFooter>
+        <Link to="/blog" className="text-primary text-sm flex items-center">
+          <span>Read more articles</span>
+          <ArrowRight className="ml-1 h-4 w-4" />
+        </Link>
+      </CardFooter>
     </Card>
   );
 };

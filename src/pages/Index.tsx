@@ -4,7 +4,7 @@ import { HeroSection } from "@/components/HomeHero";
 import { FeaturesSection } from "@/components/HomeFeatures";
 import { TestimonialsSection } from "@/components/HomeTestimonials";
 import { CtaSection } from "@/components/HomeCta";
-import { StatsWidget, TipsWidget, PopularTemplatesWidget, CtaWidget } from "@/components/HomeWidgets";
+import { TechStatsWidget, CareerPathsWidget, AIToolsWidget, NewsWidget } from "@/components/HomeWidgets";
 
 const Index = () => {
   return (
@@ -34,14 +34,14 @@ const Index = () => {
         <HeroSection />
         
         {/* Stats and Widgets Section */}
-        <div className="py-12 px-4 bg-background/30">
-          <div className="max-w-6xl mx-auto">
-            <StatsWidget />
+        <div className="py-12 px-4 bg-background/30 dark:bg-background/10">
+          <div className="max-w-7xl mx-auto">
+            <TechStatsWidget />
             
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-              <TipsWidget />
-              <PopularTemplatesWidget />
-              <CtaWidget />
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+              <CareerPathsWidget />
+              <AIToolsWidget />
+              <NewsWidget />
             </div>
           </div>
         </div>
