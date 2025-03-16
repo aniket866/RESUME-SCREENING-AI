@@ -85,7 +85,8 @@ export const CtaSection = () => {
         {/* Bubbles will be dynamically added here */}
       </div>
       
-      <style jsx="true">{`
+      <style>
+        {`
         @keyframes float {
           0% {
             transform: translateY(0) translateX(0);
@@ -99,7 +100,8 @@ export const CtaSection = () => {
             opacity: 0;
           }
         }
-      `}</style>
+        `}
+      </style>
     </div>
   );
 };

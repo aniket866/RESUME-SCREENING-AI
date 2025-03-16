@@ -7,6 +7,8 @@ export const AnimatedLogo = ({ className, large = false }: { className?: string,
   const containerRef = useRef<HTMLDivElement>(null);
   const circleRef = useRef<HTMLDivElement>(null);
   const robotArmRef = useRef<HTMLDivElement>(null);
+  const leftArmRef = useRef<HTMLDivElement>(null);
+  const rightArmRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
     const pulseInterval = setInterval(() => {
@@ -29,6 +31,15 @@ export const AnimatedLogo = ({ className, large = false }: { className?: string,
       if (robotArmRef.current) {
         const armAngle = Math.sin((Date.now() / 1000)) * 15;
         robotArmRef.current.style.transform = `rotate(${armAngle}deg)`;
+      }
+      
+      // Arms movement
+      if (leftArmRef.current && rightArmRef.current) {
+        const leftArmAngle = Math.sin((Date.now() / 800)) * 20;
+        const rightArmAngle = Math.sin((Date.now() / 800) + Math.PI) * 20;
+        
+        leftArmRef.current.style.transform = `rotate(${leftArmAngle}deg)`;
+        rightArmRef.current.style.transform = `rotate(${rightArmAngle}deg)`;
       }
     }, 50);
     
@@ -59,8 +70,36 @@ export const AnimatedLogo = ({ className, large = false }: { className?: string,
       )}>
         <div className="absolute inset-0 bg-primary/10 rounded-full animate-ping opacity-50" />
         
-        {/* Robot head */}
-        <div className="relative" ref={robotArmRef}>
+        {/* Robot head and body */}
+        <div className="relative flex items-center justify-center" ref={robotArmRef}>
+          {/* Left Robot Arm */}
+          <div 
+            ref={leftArmRef}
+            className={cn(
+              "absolute bg-primary/80 rounded-full",
+              large ? "h-8 w-1.5 -left-4 top-1 origin-bottom" : "h-6 w-1 -left-3 top-1 origin-bottom"
+            )}
+          >
+            <div className={cn(
+              "absolute bg-primary/50 rounded-full",
+              large ? "h-2 w-2 -left-0.5 -top-1" : "h-1.5 w-1.5 -left-0.5 -top-1"
+            )} />
+          </div>
+          
+          {/* Right Robot Arm */}
+          <div 
+            ref={rightArmRef}
+            className={cn(
+              "absolute bg-primary/80 rounded-full",
+              large ? "h-8 w-1.5 -right-4 top-1 origin-bottom" : "h-6 w-1 -right-3 top-1 origin-bottom"
+            )}
+          >
+            <div className={cn(
+              "absolute bg-primary/50 rounded-full",
+              large ? "h-2 w-2 -right-0.5 -top-1" : "h-1.5 w-1.5 -right-0.5 -top-1"
+            )} />
+          </div>
+          
           <Bot className={cn("text-primary", large ? "h-9 w-9" : "h-7 w-7")} />
           
           {/* Circuit decorations */}

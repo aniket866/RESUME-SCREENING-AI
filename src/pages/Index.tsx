@@ -28,6 +28,34 @@ const Index = () => {
             transform: translateY(0) translateX(0);
           }
         }
+        
+        @keyframes pulse-glow {
+          0%, 100% {
+            box-shadow: 0 0 15px 5px rgba(60, 250, 133, 0.2);
+          }
+          50% {
+            box-shadow: 0 0 25px 10px rgba(60, 250, 133, 0.4);
+          }
+        }
+        
+        .tech-card {
+          transition: all 0.3s ease;
+        }
+        
+        .tech-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px -5px rgba(60, 250, 133, 0.3);
+        }
+        
+        .career-item {
+          transition: all 0.3s ease;
+          border-left: 3px solid transparent;
+        }
+        
+        .career-item:hover {
+          border-left: 3px solid #3CFA85;
+          background: rgba(60, 250, 133, 0.05);
+        }
         `}
       </style>
       <main className="flex-1">
