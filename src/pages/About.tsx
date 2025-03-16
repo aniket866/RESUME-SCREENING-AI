@@ -1,11 +1,10 @@
-
 import React from "react";
 import { SparkleBackground } from "@/components/SparkleBackground";
 import { Card, CardContent } from "@/components/ui/card";
 import { SparkleButton } from "@/components/SparkleButton";
 import { Link } from "react-router-dom";
 import { AnimatedLogo } from "@/components/AnimatedLogo";
-import { Robot, Users, Award, Heart, Target, Clock } from "lucide-react";
+import { Bot, Users, Award, Heart, Target, Clock } from "lucide-react";
 
 const About = () => {
   return (
@@ -48,7 +47,7 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                icon: <Robot className="h-8 w-8 text-primary" />,
+                icon: <Bot className="h-8 w-8 text-primary" />,
                 title: "AI-Powered Innovation",
                 description: "We leverage cutting-edge AI to solve real problems in the hiring process."
               },

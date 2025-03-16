@@ -82,6 +82,7 @@ const enterprisePlans = [
       { name: "Premium support", included: false },
       { name: "API access", included: false },
     ],
+    popular: false,
     badge: "Starter"
   },
   {
@@ -99,6 +100,7 @@ const enterprisePlans = [
       { name: "Premium support", included: true },
       { name: "API access", included: true },
     ],
+    popular: false,
     badge: "Enterprise"
   }
 ];
