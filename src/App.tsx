@@ -17,6 +17,7 @@ import RecruiterDashboard from "./pages/RecruiterDashboard";
 import NotFound from "./pages/NotFound";
 import Landing from "./pages/Landing";
 import ResumeAnalysis from "./pages/ResumeAnalysis";
+import ResumeTemplates from "./pages/ResumeTemplates";
 
 // Create a new QueryClient for every component render
 const App = () => {
@@ -25,7 +26,7 @@ const App = () => {
   
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
+      <ThemeProvider defaultTheme="dark">
         <AuthProvider>
           <TooltipProvider>
             <BrowserRouter>
@@ -37,6 +38,7 @@ const App = () => {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/upload-resume" element={<UploadResume />} />
                 <Route path="/resume-analysis" element={<ResumeAnalysis />} />
+                <Route path="/resume-templates" element={<ResumeTemplates />} />
                 <Route path="/jobseeker-dashboard" element={<JobSeekerDashboard />} />
                 <Route path="/recruiter-dashboard" element={<RecruiterDashboard />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

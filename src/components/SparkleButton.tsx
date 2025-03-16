@@ -34,20 +34,24 @@ export const SparkleButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
         >
           <span className="relative z-10">{children}</span>
           {isHovering && (
-            <div className="absolute inset-0 pointer-events-none">
-              {[...Array(10)].map((_, i) => (
-                <span
-                  key={i}
-                  className="absolute inline-flex h-2 w-2 rounded-full bg-primary/60"
-                  style={{
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                    animationDelay: `${Math.random() * 0.5}s`,
-                    animationDuration: `${0.5 + Math.random() * 0.5}s`,
-                  }}
-                />
-              ))}
-            </div>
+            <>
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-primary/20 animate-pulse z-0" />
+              <div className="absolute inset-0 pointer-events-none z-0">
+                {[...Array(15)].map((_, i) => (
+                  <span
+                    key={i}
+                    className="absolute inline-flex h-2 w-2 rounded-full bg-primary/60"
+                    style={{
+                      left: `${Math.random() * 100}%`,
+                      top: `${Math.random() * 100}%`,
+                      animationDelay: `${Math.random() * 0.5}s`,
+                      animation: `sparkle ${0.5 + Math.random() * 0.5}s ease-in-out ${Math.random() * 0.5}s`,
+                      opacity: Math.random() * 0.7 + 0.3,
+                    }}
+                  />
+                ))}
+              </div>
+            </>
           )}
         </Button>
       </div>
