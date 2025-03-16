@@ -1,69 +1,73 @@
-# Welcome to your Lovable project
 
-## Project info
+# Smart Solutions - AI Resume Analysis
 
-**URL**: https://lovable.dev/projects/e4c59832-b2ab-4e2c-a0ee-ea7200ffbf29
+![Smart Solutions](https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=1200)
 
-## How can I edit this code?
+## About Smart Solutions
 
-There are several ways of editing your application.
+Smart Solutions provides intelligent AI and blockchain technology for career advancement and recruitment. Our platform enables smarter resume analysis and career decisions for the modern tech world.
 
-**Use Lovable**
+## Key Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e4c59832-b2ab-4e2c-a0ee-ea7200ffbf29) and start prompting.
+- **AI-Powered Resume Analysis** - Get detailed insights on your resume's effectiveness with real-time ATS scoring
+- **Skill Gap Analysis** - Identify missing skills and get recommendations to match job requirements
+- **Career Path Guidance** - Discover optimal career progression paths based on your skills and interests
+- **Recruiter Tools** - Powerful candidate screening and ranking for efficient recruitment
 
-Changes made via Lovable will be committed automatically to this repo.
+![Resume Analysis](https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=1200)
 
-**Use your preferred IDE**
+## Technology Stack
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
+This project is built with:
 
 - Vite
 - TypeScript
 - React
-- shadcn-ui
 - Tailwind CSS
+- shadcn-ui
 
-## How can I deploy this project?
+## Running the Project
 
-Simply open [Lovable](https://lovable.dev/projects/e4c59832-b2ab-4e2c-a0ee-ea7200ffbf29) and click on Share -> Publish.
+```sh
+# Step 1: Clone the repository
+git clone <YOUR_GIT_URL>
 
-## I want to use a custom domain - is that possible?
+# Step 2: Navigate to the project directory
+cd smart-solutions
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+# Step 3: Install the necessary dependencies
+npm i
+
+# Step 4: Start the development server
+npm run dev
+```
+
+![Career Growth](https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200)
+
+## Deployment
+
+To deploy this project:
+
+1. Build the production version: `npm run build`
+2. Deploy the contents of the `dist` folder to your web server
+
+## Custom Domain Setup
+
+To setup a custom domain for your deployment:
+
+1. Configure your DNS settings to point to your hosting provider
+2. Set up appropriate SSL certificates for secure connections
+3. Update the domain settings in your hosting configuration
+
+## Project Structure
+
+- `/src/components` - UI components
+- `/src/pages` - Page components
+- `/src/context` - React context providers
+- `/src/hooks` - Custom React hooks
+
+## Live Demo
+
+Visit our live demo: [Smart Solutions Demo](https://your-demo-site.com)
+
+![AI Technology](https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80&w=1200)
