@@ -107,7 +107,26 @@ export default {
 				'bg-pulse': {
 					'0%, 100%': { opacity: '1' },
 					'50%': { opacity: '0.8' }
-				}
+				},
+				'ping': {
+                    '75%, 100%': {
+                        transform: 'scale(1.2)',
+                        opacity: '0',
+                    },
+                },
+                'sparkle': {
+                    '0%': {
+                        transform: 'scale(0) rotate(0deg)',
+                        opacity: '0',
+                    },
+                    '50%': {
+                        opacity: '1',
+                    },
+                    '100%': {
+                        transform: 'scale(1) rotate(45deg)',
+                        opacity: '0',
+                    },
+                },
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -119,7 +138,9 @@ export default {
 				'scale-in': 'scale-in 0.3s ease-out',
 				'slide-in-right': 'slide-in-right 0.3s ease-out',
 				'slide-in-left': 'slide-in-left 0.3s ease-out',
-				'bg-pulse': 'bg-pulse 2s ease-in-out infinite'
+				'bg-pulse': 'bg-pulse 2s ease-in-out infinite',
+				'ping': 'ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite',
+				'sparkle': 'sparkle 2s ease-in-out infinite',
 			},
 			transitionProperty: {
 				'height': 'height',

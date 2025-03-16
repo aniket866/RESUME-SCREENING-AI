@@ -14,10 +14,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== "undefined") {
       const savedTheme = localStorage.getItem("theme") as Theme;
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      return savedTheme || (prefersDark ? "dark" : "light");
+      // Always default to dark unless explicitly set to light in localStorage
+      return savedTheme === "light" ? "light" : "dark";
     }
-    return "light";
+    return "dark"; // Default to dark
   });
 
   useEffect(() => {
