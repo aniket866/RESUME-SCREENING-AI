@@ -1,8 +1,6 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ThemeProvider } from "@/context/ThemeContext";
-import { AuthProvider } from "@/context/AuthContext";
 import { useAuth } from "@/context/AuthContext";
 import { Link } from "react-router-dom";
 import { useTheme } from "@/context/ThemeContext";
@@ -135,14 +133,4 @@ const Index = () => {
   );
 };
 
-const IndexWithProviders = () => {
-  return (
-    <ThemeProvider>
-      <AuthProvider>
-        <Index />
-      </AuthProvider>
-    </ThemeProvider>
-  );
-};
-
-export default IndexWithProviders;
+export default Index;
