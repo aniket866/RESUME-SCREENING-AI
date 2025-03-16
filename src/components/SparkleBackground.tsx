@@ -75,7 +75,8 @@ export const SparkleBackground: React.FC<SparkleProps> = ({ children, className 
   return (
     <div ref={containerRef} className={`relative overflow-hidden ${className}`}>
       {children}
-      <style jsx>{`
+      <style>
+        {`
         @keyframes sparkle {
           0% {
             transform: scale(0);
@@ -95,7 +96,8 @@ export const SparkleBackground: React.FC<SparkleProps> = ({ children, className 
             opacity: 0;
           }
         }
-      `}</style>
+        `}
+      </style>
     </div>
   );
 };

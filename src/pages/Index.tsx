@@ -293,7 +293,8 @@ const CtaSection = () => {
 const Index = () => {
   return (
     <SparkleBackground className="min-h-screen flex flex-col pt-16">
-      <style jsx>{`
+      <style>
+        {`
         @keyframes float {
           0% {
             transform: translateY(0) translateX(0);
@@ -311,7 +312,8 @@ const Index = () => {
             transform: translateY(0) translateX(0);
           }
         }
-      `}</style>
+        `}
+      </style>
       <main className="flex-1">
         <HeroSection />
         <FeaturesSection />
