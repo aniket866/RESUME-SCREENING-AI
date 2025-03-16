@@ -3,9 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useAuth } from "@/context/AuthContext";
 import { Link } from "react-router-dom";
-import { useTheme } from "@/context/ThemeContext";
-import { Sun, Moon, Upload, Search, BadgeCheck, BarChart3 } from "lucide-react";
-import { Switch } from "@/components/ui/switch";
+import { Upload, Search, BadgeCheck, BarChart3, BrainCircuit, Zap, Sparkles } from "lucide-react";
 
 const FeatureCard = ({
   icon,
@@ -17,28 +15,13 @@ const FeatureCard = ({
   description: string;
 }) => {
   return (
-    <Card className="border-none glass-card">
+    <Card className="border-none glass-card hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
       <CardContent className="flex flex-col items-center p-6">
         <div className="bg-primary/10 p-3 rounded-full mb-4">{icon}</div>
         <h3 className="text-xl font-bold mb-2">{title}</h3>
         <p className="text-muted-foreground text-center">{description}</p>
       </CardContent>
     </Card>
-  );
-};
-
-const ThemeToggle = () => {
-  const { theme, setTheme } = useTheme();
-
-  return (
-    <div className="flex items-center gap-2">
-      <Sun className="h-4 w-4" />
-      <Switch
-        checked={theme === "dark"}
-        onCheckedChange={() => setTheme(theme === "dark" ? "light" : "dark")}
-      />
-      <Moon className="h-4 w-4" />
-    </div>
   );
 };
 
@@ -96,7 +79,7 @@ const FeaturesSection = () => {
   return (
     <div className="py-16 px-4 bg-background">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">Key Features</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">Enhanced AI Features</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <FeatureCard
             icon={<BarChart3 className="h-6 w-6 text-primary" />}
@@ -109,9 +92,24 @@ const FeaturesSection = () => {
             description="Identify missing keywords and skills to tailor your resume for specific job descriptions."
           />
           <FeatureCard
+            icon={<BrainCircuit className="h-6 w-6 text-primary" />}
+            title="AI Resume Enhancement"
+            description="Get AI-powered suggestions to improve your resume content, formatting and readability."
+          />
+          <FeatureCard
             icon={<Search className="h-6 w-6 text-primary" />}
             title="Smart Candidate Ranking"
             description="Recruiters can automatically rank and filter candidates based on skill match and resume quality."
+          />
+          <FeatureCard
+            icon={<Zap className="h-6 w-6 text-primary" />}
+            title="Instant Feedback"
+            description="Receive instant feedback on your resume with actionable suggestions for improvement."
+          />
+          <FeatureCard
+            icon={<Sparkles className="h-6 w-6 text-primary" />}
+            title="Personalized Insights"
+            description="Get personalized recommendations based on your industry, experience level, and career goals."
           />
         </div>
       </div>
@@ -121,10 +119,7 @@ const FeaturesSection = () => {
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex flex-col">
-      <header className="w-full px-4 py-4 flex justify-end">
-        <ThemeToggle />
-      </header>
+    <div className="min-h-screen flex flex-col pt-16">
       <main className="flex-1">
         <HeroSection />
         <FeaturesSection />

@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./context/ThemeContext";
 import { AuthProvider } from "./context/AuthContext";
+import { Navbar } from "./components/Navbar";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -15,6 +16,7 @@ import JobSeekerDashboard from "./pages/JobSeekerDashboard";
 import RecruiterDashboard from "./pages/RecruiterDashboard";
 import NotFound from "./pages/NotFound";
 import Landing from "./pages/Landing";
+import ResumeAnalysis from "./pages/ResumeAnalysis";
 
 // Create a new QueryClient for every component render
 const App = () => {
@@ -27,12 +29,14 @@ const App = () => {
         <AuthProvider>
           <TooltipProvider>
             <BrowserRouter>
+              <Navbar />
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/landing" element={<Landing />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/upload-resume" element={<UploadResume />} />
+                <Route path="/resume-analysis" element={<ResumeAnalysis />} />
                 <Route path="/jobseeker-dashboard" element={<JobSeekerDashboard />} />
                 <Route path="/recruiter-dashboard" element={<RecruiterDashboard />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
