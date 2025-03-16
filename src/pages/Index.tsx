@@ -56,6 +56,26 @@ const Index = () => {
           border-left: 3px solid #3CFA85;
           background: rgba(60, 250, 133, 0.05);
         }
+        
+        .particle {
+          position: absolute;
+          border-radius: 50%;
+          opacity: 0.8;
+          pointer-events: none;
+          transform-origin: center;
+          z-index: 20;
+        }
+        
+        @keyframes sparkle {
+          0%, 100% {
+            opacity: 0.3;
+            transform: scale(0.8);
+          }
+          50% {
+            opacity: 1;
+            transform: scale(1.2);
+          }
+        }
         `}
       </style>
       <main className="flex-1">

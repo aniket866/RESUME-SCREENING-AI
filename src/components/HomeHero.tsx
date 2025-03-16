@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { Link } from "react-router-dom";
 import { Upload, Search, Sparkles, BrainCircuit, Bot } from "lucide-react";
@@ -8,6 +8,63 @@ import { AnimatedLogo } from "@/components/AnimatedLogo";
 
 export const HeroSection = () => {
   const { user } = useAuth();
+  const animationRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!animationRef.current) return;
+    
+    const createParticle = () => {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      
+      // Random size between 5-15px
+      const size = Math.random() * 10 + 5;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      
+      // Random position
+      const posX = Math.random() * 100;
+      const posY = Math.random() * 100;
+      particle.style.left = `${posX}%`;
+      particle.style.top = `${posY}%`;
+      
+      // Random color between green and cyan
+      const hue = Math.random() * 60 + 120; // 120-180 hue range (green to cyan)
+      particle.style.backgroundColor = `hsla(${hue}, 100%, 70%, 0.8)`;
+      
+      // Random animation duration
+      const duration = Math.random() * 5 + 5;
+      particle.style.animation = `float ${duration}s ease-in-out infinite, pulse-glow ${duration / 2}s ease-in-out infinite`;
+      
+      // Add to container
+      if (animationRef.current) {
+        animationRef.current.appendChild(particle);
+        
+        // Remove after animation
+        setTimeout(() => {
+          if (particle.parentNode === animationRef.current) {
+            animationRef.current?.removeChild(particle);
+          }
+        }, duration * 1000);
+      }
+    };
+    
+    // Create initial particles
+    for (let i = 0; i < 20; i++) {
+      createParticle();
+    }
+    
+    // Create new particles periodically
+    const interval = setInterval(() => {
+      if (animationRef.current) {
+        createParticle();
+      }
+    }, 1000);
+    
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   return (
     <div className="flex flex-col md:flex-row items-center text-center md:text-left px-4 py-16 md:py-24 relative">
@@ -79,13 +136,27 @@ export const HeroSection = () => {
       </div>
       
       <div className="w-full md:w-1/2 flex justify-center md:justify-end p-4">
-        <div className="relative w-full max-w-md">
+        <div className="relative w-full max-w-md h-[400px] flex items-center justify-center">
           <div className="absolute inset-0 bg-gradient-to-r from-[#3CFA85]/20 to-primary/20 blur-xl rounded-full"></div>
-          <img 
-            src="/lovable-uploads/8cae21a3-b0a6-475c-be09-abf28b7d1f0b.png" 
-            alt="AI Future Technology" 
-            className="relative z-10 rounded-lg object-cover w-full"
-          />
+          
+          {/* Animated container with floating particles */}
+          <div 
+            ref={animationRef} 
+            className="relative z-10 w-full h-full rounded-lg overflow-hidden"
+          >
+            {/* Holographic robot or AI visualization */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-[200px] h-[200px] relative">
+                <div className="absolute inset-0 rounded-full border-4 border-[#3CFA85]/30 animate-ping" style={{ animationDuration: '3s' }}></div>
+                <div className="absolute inset-[15%] rounded-full border-4 border-[#3CFA85]/50 animate-ping" style={{ animationDuration: '4s' }}></div>
+                <div className="absolute inset-[30%] rounded-full border-4 border-[#3CFA85]/70 animate-ping" style={{ animationDuration: '5s' }}></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Bot className="h-20 w-20 text-[#3CFA85] animate-pulse" style={{ animationDuration: '2s' }} />
+                </div>
+              </div>
+            </div>
+          </div>
+          
           <div className="absolute -bottom-4 -right-4 bg-black/80 backdrop-blur-sm p-3 rounded-lg text-xs text-white z-20">
             <div className="flex items-center gap-2 mb-1">
               <Bot className="h-4 w-4 text-[#3CFA85]" />
