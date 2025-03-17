@@ -1,6 +1,11 @@
 
 # Smart Solutions - AI Resume Analysis
 
+[screen-capture (12).webm](https://github.com/user-attachments/assets/96e97186-68a8-4ae6-8967-1c0d5cbb272e)
+
+
+
+
 ![Smart Solutions](https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=1200)
 
 ## About Smart Solutions
@@ -68,6 +73,6 @@ To setup a custom domain for your deployment:
 
 ## Live Demo
 
-Visit our live demo: [Smart Solutions Demo](https://your-demo-site.com)
+Visit our live demo: [Smart Solutions Demo]resume-screening-ai.vercel.app
 
 ![AI Technology](https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80&w=1200)
